@@ -1,0 +1,979 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Linha do tempo ano a ano (2005-2026) das investigacoes, denuncias e condenacoes por corrupcao envolvendo Lula, Renan Santos e Flavio Bolsonaro, com fontes oficiais e jornalisticas.">
+<title>Ficha Corrida</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Public+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<style>
+  :root{
+    --paper:#EEEFEA;
+    --paper-raised:#FFFFFF;
+    --paper-sunk:#E3E4DD;
+    --ink:#1D2320;
+    --ink-soft:#585D53;
+    --ink-faint:#8A8F82;
+    --line:#D2D4C9;
+    --accent:#2E4A6B;
+    --accent-soft:#DDE5EC;
+    --accent-ink:#1B2E45;
+    --gold:#96702F;
+    --gold-soft:#F1E6D2;
+    --clear:#3E7A56;
+    --clear-bg:#E1EEE5;
+    --clear-ink:#204731;
+    --watch:#B9702A;
+    --watch-bg:#F5E5CF;
+    --watch-ink:#5C3712;
+    --convict:#A8362B;
+    --convict-bg:#F4DAD6;
+    --convict-ink:#5C1811;
+    --shadow: 0 1px 2px rgba(29,35,32,.06), 0 6px 20px -8px rgba(29,35,32,.18);
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --paper:#14171A;
+      --paper-raised:#1B1F22;
+      --paper-sunk:#202427;
+      --ink:#EAE8E0;
+      --ink-soft:#ABAFA4;
+      --ink-faint:#767B70;
+      --line:#33372F;
+      --accent:#8FB2D6;
+      --accent-soft:#22323F;
+      --accent-ink:#CFE1F1;
+      --gold:#D3A75E;
+      --gold-soft:#3A2E1B;
+      --clear:#6FBE8E;
+      --clear-bg:#17281E;
+      --clear-ink:#A8E0BE;
+      --watch:#E39C56;
+      --watch-bg:#332411;
+      --watch-ink:#F4CE9F;
+      --convict:#E28377;
+      --convict-bg:#391C18;
+      --convict-ink:#F5B5AA;
+      --shadow: 0 1px 2px rgba(0,0,0,.3), 0 6px 24px -10px rgba(0,0,0,.6);
+    }
+  }
+  :root[data-theme="dark"]{
+    --paper:#14171A;
+    --paper-raised:#1B1F22;
+    --paper-sunk:#202427;
+    --ink:#EAE8E0;
+    --ink-soft:#ABAFA4;
+    --ink-faint:#767B70;
+    --line:#33372F;
+    --accent:#8FB2D6;
+    --accent-soft:#22323F;
+    --accent-ink:#CFE1F1;
+    --gold:#D3A75E;
+    --gold-soft:#3A2E1B;
+    --clear:#6FBE8E;
+    --clear-bg:#17281E;
+    --clear-ink:#A8E0BE;
+    --watch:#E39C56;
+    --watch-bg:#332411;
+    --watch-ink:#F4CE9F;
+    --convict:#E28377;
+    --convict-bg:#391C18;
+    --convict-ink:#F5B5AA;
+    --shadow: 0 1px 2px rgba(0,0,0,.3), 0 6px 24px -10px rgba(0,0,0,.6);
+  }
+
+  *{box-sizing:border-box;}
+  html{-webkit-text-size-adjust:100%;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:"Public Sans", "Segoe UI", system-ui, sans-serif;
+    font-size:16px;
+    line-height:1.55;
+    overflow-x:hidden;
+  }
+  a{color:var(--accent-ink);}
+  a:focus-visible, button:focus-visible, input:focus-visible, summary:focus-visible{
+    outline:2px solid var(--gold); outline-offset:2px;
+  }
+  h1,h2,h3,h4{
+    font-family:"Fraunces", Georgia, serif;
+    font-weight:600;
+    text-wrap:balance;
+    margin:0;
+  }
+  .wrap{max-width:1120px; margin:0 auto; padding:0 24px;}
+  .prose{max-width:65ch;}
+
+  /* ===== Masthead ===== */
+  .masthead{
+    border-bottom:1px solid var(--line);
+    padding:56px 0 40px;
+    background:
+      linear-gradient(180deg, var(--paper-sunk), var(--paper) 70%);
+  }
+  .eyebrow{
+    font-family:"IBM Plex Mono", monospace;
+    font-size:12.5px;
+    letter-spacing:.09em;
+    text-transform:uppercase;
+    color:var(--accent-ink);
+    display:flex; align-items:center; gap:10px;
+    margin-bottom:18px;
+  }
+  .eyebrow::before{
+    content:"";
+    width:22px; height:1px; background:var(--gold);
+  }
+  .masthead h1{
+    font-size:clamp(2.3rem, 5vw, 3.6rem);
+    line-height:1.03;
+    letter-spacing:-.01em;
+  }
+  .masthead .sub{
+    font-size:1.1rem;
+    color:var(--ink-soft);
+    margin-top:16px;
+    max-width:62ch;
+  }
+  .masthead .names{
+    font-style:italic;
+    color:var(--ink);
+  }
+  .stamp-row{
+    display:flex; flex-wrap:wrap; gap:10px;
+    margin-top:28px;
+  }
+  .stamp{
+    font-family:"IBM Plex Mono", monospace;
+    font-size:12px;
+    letter-spacing:.04em;
+    border:1px solid var(--line);
+    border-radius:3px;
+    padding:6px 10px;
+    color:var(--ink-soft);
+    background:var(--paper-raised);
+  }
+
+  .disclaimer{
+    margin-top:32px;
+    border:1px solid var(--line);
+    border-left:3px solid var(--gold);
+    background:var(--paper-raised);
+    border-radius:4px;
+    padding:16px 20px;
+    font-size:.92rem;
+    color:var(--ink-soft);
+    box-shadow:var(--shadow);
+  }
+  .disclaimer strong{color:var(--ink);}
+
+  /* ===== Section scaffolding ===== */
+  section{padding:52px 0;}
+  section.divider-top{border-top:1px solid var(--line);}
+  .section-head{
+    display:flex; align-items:baseline; justify-content:space-between; gap:24px;
+    flex-wrap:wrap;
+    margin-bottom:28px;
+  }
+  .section-head h2{font-size:clamp(1.5rem,3vw,2rem);}
+  .kicker{
+    font-family:"IBM Plex Mono",monospace;
+    font-size:11.5px; letter-spacing:.08em; text-transform:uppercase;
+    color:var(--gold);
+  }
+
+  /* ===== Legend ===== */
+  .legend{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+    gap:14px;
+  }
+  .legend-item{
+    display:flex; gap:12px; align-items:flex-start;
+    border:1px solid var(--line);
+    background:var(--paper-raised);
+    border-radius:8px;
+    padding:14px 16px;
+    box-shadow:var(--shadow);
+  }
+  .swatch{
+    width:14px; height:14px; border-radius:3px; margin-top:3px; flex:none;
+  }
+  .swatch.green{background:var(--clear);}
+  .swatch.orange{background:var(--watch);}
+  .swatch.red{background:var(--convict);}
+  .legend-item h4{font-family:"Public Sans",sans-serif; font-weight:700; font-size:.95rem;}
+  .legend-item p{margin:4px 0 0; font-size:.87rem; color:var(--ink-soft);}
+
+  /* ===== Summary cards ===== */
+  .summary-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+  }
+  @media (max-width:860px){ .summary-grid{grid-template-columns:1fr;} }
+  .cand-card{
+    border:1px solid var(--line);
+    background:var(--paper-raised);
+    border-radius:10px;
+    padding:22px 22px 20px;
+    box-shadow:var(--shadow);
+    display:flex; flex-direction:column; gap:14px;
+  }
+  .cand-card .name{font-family:"Fraunces",serif; font-size:1.3rem; font-weight:600;}
+  .cand-card .role{font-size:.85rem; color:var(--ink-soft);}
+  .cand-stats{display:flex; gap:10px; flex-wrap:wrap;}
+  .stat{
+    flex:1; min-width:90px;
+    border:1px solid var(--line);
+    border-radius:6px;
+    padding:10px 12px;
+    background:var(--paper-sunk);
+  }
+  .stat .n{font-family:"IBM Plex Mono",monospace; font-size:1.3rem; font-weight:600; font-variant-numeric:tabular-nums;}
+  .stat.n-clear .n{color:var(--clear);}
+  .stat.n-watch .n{color:var(--watch);}
+  .stat.n-convict .n{color:var(--convict);}
+  .stat .lbl{font-size:.72rem; color:var(--ink-soft); text-transform:uppercase; letter-spacing:.04em; margin-top:2px;}
+  .cand-now{
+    font-size:.86rem;
+    border-top:1px dashed var(--line);
+    padding-top:12px;
+    color:var(--ink-soft);
+  }
+  .cand-now b{color:var(--ink); font-weight:600;}
+
+  /* ===== Controls ===== */
+  .controls{
+    display:flex; flex-wrap:wrap; gap:12px; align-items:center;
+    margin-bottom:26px;
+    font-size:.88rem;
+  }
+  .controls .grp{
+    display:flex; gap:8px; flex-wrap:wrap; align-items:center;
+    border:1px solid var(--line);
+    background:var(--paper-raised);
+    border-radius:999px;
+    padding:5px;
+  }
+  .chip{
+    font-family:"Public Sans",sans-serif;
+    font-size:.82rem;
+    border:1px solid transparent;
+    background:transparent;
+    color:var(--ink-soft);
+    padding:6px 13px;
+    border-radius:999px;
+    cursor:pointer;
+    display:flex; align-items:center; gap:7px;
+  }
+  .chip[aria-pressed="true"]{
+    background:var(--accent-soft);
+    color:var(--accent-ink);
+    font-weight:600;
+  }
+  .chip .dot{width:8px; height:8px; border-radius:50%; background:currentColor; opacity:.6;}
+  .toggle-only{
+    display:flex; align-items:center; gap:8px;
+    color:var(--ink-soft);
+  }
+  .toggle-only input{accent-color:var(--accent);}
+
+  /* ===== Timeline / ledger ===== */
+  .timeline{--cols:3;}
+  .year-row{
+    display:grid;
+    grid-template-columns:96px repeat(var(--cols),1fr);
+    gap:14px;
+    padding:20px 0;
+    border-top:1px solid var(--line);
+    align-items:stretch;
+  }
+  .year-row:last-child{border-bottom:1px solid var(--line);}
+  .year-row[data-active="false"].filtered-hide{display:none;}
+  .year-label{
+    font-family:"IBM Plex Mono",monospace;
+    font-size:1.1rem;
+    font-weight:600;
+    color:var(--ink-faint);
+    padding-top:6px;
+    position:sticky;
+    top:12px;
+    align-self:start;
+    font-variant-numeric:tabular-nums;
+  }
+  .year-row[data-active="true"] .year-label{color:var(--ink);}
+  .cell{
+    border-radius:8px;
+    border:1px solid var(--line);
+    padding:14px 15px 13px;
+    display:flex; flex-direction:column; gap:6px;
+    min-height:64px;
+  }
+  .cell.status-green{background:var(--clear-bg); border-color:color-mix(in srgb, var(--clear) 35%, var(--line));}
+  .cell.status-orange{background:var(--watch-bg); border-color:color-mix(in srgb, var(--watch) 40%, var(--line));}
+  .cell.status-red{background:var(--convict-bg); border-color:color-mix(in srgb, var(--convict) 45%, var(--line));}
+  .cell .tag{
+    font-family:"IBM Plex Mono",monospace;
+    font-size:10.5px; letter-spacing:.06em; text-transform:uppercase;
+    font-weight:600;
+  }
+  .status-green .tag{color:var(--clear-ink);}
+  .status-orange .tag{color:var(--watch-ink);}
+  .status-red .tag{color:var(--convict-ink);}
+  .cell h4{
+    font-family:"Public Sans",sans-serif;
+    font-weight:700;
+    font-size:.94rem;
+    line-height:1.3;
+  }
+  .status-green h4{color:var(--clear-ink);}
+  .status-orange h4{color:var(--watch-ink);}
+  .status-red h4{color:var(--convict-ink);}
+  .cell p{margin:0; font-size:.85rem; color:var(--ink);}
+  .cell.status-green p{color:var(--ink-soft);}
+  .cell .refs{
+    margin-top:auto;
+    padding-top:6px;
+    display:flex; gap:6px; flex-wrap:wrap;
+  }
+  .cell .refs a{
+    font-family:"IBM Plex Mono",monospace;
+    font-size:10px;
+    text-decoration:none;
+    color:inherit;
+    opacity:.75;
+    border:1px solid currentColor;
+    border-radius:3px;
+    padding:1px 5px;
+  }
+  .cell .refs a:hover{opacity:1;}
+  .cell.empty{
+    justify-content:center;
+  }
+  .cell.empty p{font-size:.82rem; font-style:italic;}
+  .timeline.hide-lula .cell[data-cand="lula"],
+  .timeline.hide-renan .cell[data-cand="renan"],
+  .timeline.hide-flavio .cell[data-cand="flavio"]{display:none;}
+
+  @media (max-width:760px){
+    .year-row{grid-template-columns:1fr; gap:8px;}
+    .year-label{position:static; padding-top:0; font-size:1rem;
+      display:flex; align-items:center; gap:8px;}
+    .year-label::after{content:""; height:1px; flex:1; background:var(--line);}
+  }
+
+  /* ===== Methodology ===== */
+  .method-grid{
+    display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+    gap:20px;
+  }
+  .method-card{
+    border-left:2px solid var(--gold);
+    padding-left:16px;
+  }
+  .method-card h4{font-size:1rem; margin-bottom:6px;}
+  .method-card p{margin:0; font-size:.9rem; color:var(--ink-soft);}
+
+  /* ===== Sources ===== */
+  .sources{
+    background:var(--paper-sunk);
+  }
+  .source-group{margin-bottom:30px;}
+  .source-group h3{
+    font-size:1.05rem;
+    display:flex; align-items:center; gap:10px;
+    margin-bottom:14px;
+  }
+  .source-group h3 .n{
+    font-family:"IBM Plex Mono",monospace;
+    font-size:.7rem; color:var(--ink-faint);
+  }
+  ol.source-list{
+    list-style:none; margin:0; padding:0;
+    display:grid; gap:8px;
+  }
+  ol.source-list li{
+    display:grid;
+    grid-template-columns:34px 1fr;
+    gap:10px;
+    font-size:.88rem;
+    align-items:baseline;
+    border-bottom:1px dotted var(--line);
+    padding-bottom:8px;
+  }
+  ol.source-list .idx{
+    font-family:"IBM Plex Mono",monospace;
+    color:var(--gold);
+    font-size:.8rem;
+  }
+  ol.source-list a{
+    color:var(--accent-ink);
+    text-decoration-color:color-mix(in srgb, var(--accent-ink) 40%, transparent);
+  }
+  .source-outlet{color:var(--ink-faint); font-size:.8rem; display:block; margin-top:1px;}
+  .no-wiki{
+    margin-top:8px;
+    font-size:.86rem;
+    color:var(--ink-soft);
+    border:1px dashed var(--line);
+    border-radius:6px;
+    padding:12px 14px;
+  }
+
+  footer{
+    border-top:1px solid var(--line);
+    padding:32px 0 60px;
+    font-size:.82rem;
+    color:var(--ink-faint);
+  }
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="wrap">
+    <p class="eyebrow">Dossiê público · atualizado em 24 de agosto de 2026</p>
+    <h1>Ficha Corrida</h1>
+    <p class="sub">Um raio-x, ano a ano, das investigações, denúncias e condenações por corrupção envolvendo
+      <span class="names">Luiz Inácio Lula da Silva</span>,
+      <span class="names">Renan Santos</span> e
+      <span class="names">Flávio Bolsonaro</span> — três nomes cotados para a disputa presidencial de 2026.</p>
+    <div class="stamp-row">
+      <span class="stamp">2005 – 2026</span>
+      <span class="stamp">66 células de dados</span>
+      <span class="stamp">36 fontes primárias/jornalísticas</span>
+    </div>
+    <div class="disclaimer">
+      <strong>Antes de usar isto como prova de qualquer coisa:</strong> este material foi compilado a partir de
+      reportagens e decisões judiciais públicas, não é parecer jurídico e a situação de qualquer processo pode
+      mudar a qualquer momento. Sempre confira o status mais recente diretamente nos portais do
+      <a href="https://portal.stf.jus.br/" target="_blank" rel="noopener">STF</a>,
+      <a href="https://www.stj.jus.br/" target="_blank" rel="noopener">STJ</a> e
+      <a href="https://www.mpf.mp.br/" target="_blank" rel="noopener">MPF</a> antes de repassar qualquer afirmação daqui.
+    </div>
+  </div>
+</header>
+
+<section aria-labelledby="legenda-h">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <p class="kicker">Como ler</p>
+        <h2 id="legenda-h">A chave de cores</h2>
+      </div>
+    </div>
+    <div class="legend">
+      <div class="legend-item">
+        <span class="swatch green"></span>
+        <div><h4>Verde</h4><p>Nenhuma investigação, acusação ou condenação por corrupção documentada para aquele nome, naquele ano.</p></div>
+      </div>
+      <div class="legend-item">
+        <span class="swatch orange"></span>
+        <div><h4>Laranja</h4><p>Houve investigação, denúncia formal, indiciamento ou julgamento sem condenação (inclusive absolvições e arquivamentos).</p></div>
+      </div>
+      <div class="legend-item">
+        <span class="swatch red"></span>
+        <div><h4>Vermelho</h4><p>Houve condenação formal em algum grau de jurisdição naquele ano — mesmo que revista ou anulada depois (isso é sempre indicado no texto da célula).</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="divider-top" aria-labelledby="resumo-h">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <p class="kicker">Panorama geral</p>
+        <h2 id="resumo-h">Os três, em números</h2>
+      </div>
+    </div>
+    <div class="summary-grid">
+
+      <article class="cand-card">
+        <div>
+          <div class="name">Luiz Inácio Lula da Silva</div>
+          <div class="role">Presidente da República · PT</div>
+        </div>
+        <div class="cand-stats">
+          <div class="stat n-watch"><div class="n">3</div><div class="lbl">anos c/ investigação ou acusação</div></div>
+          <div class="stat n-convict"><div class="n">4</div><div class="lbl">anos c/ condenação vigente</div></div>
+          <div class="stat n-clear"><div class="n">15</div><div class="lbl">anos sem ocorrência</div></div>
+        </div>
+        <p class="cand-now"><b>Situação em 2026:</b> sem processos por corrupção em aberto. As condenações da Lava Jato (2017–2019) foram anuladas pelo STF em 2021 por incompetência do juízo de Curitiba e suspeita de parcialidade de Sergio Moro; os casos reabertos em Brasília foram depois rejeitados ou arquivados por prescrição.</p>
+      </article>
+
+      <article class="cand-card">
+        <div>
+          <div class="name">Renan Santos</div>
+          <div class="role">Coordenador nacional do MBL · presidente do partido Missão (candidato à Presidência)</div>
+        </div>
+        <div class="cand-stats">
+          <div class="stat n-watch"><div class="n">2</div><div class="lbl">anos c/ investigação ou acusação</div></div>
+          <div class="stat n-convict"><div class="n">0</div><div class="lbl">anos c/ condenação vigente</div></div>
+          <div class="stat n-clear"><div class="n">20</div><div class="lbl">anos sem ocorrência</div></div>
+        </div>
+        <p class="cand-now"><b>Situação em 2026:</b> nenhuma condenação por corrupção. A única denúncia formal contra ele (tráfico de influência, 2020) foi rejeitada pela Justiça por falta de elementos. Uma investigação por lavagem de dinheiro envolvendo empresas de sua família (Operação Juno Moneta) foi ampliada em 2022 e, pelas fontes consultadas, seguia em curso sem denúncia até a publicação desta página.</p>
+      </article>
+
+      <article class="cand-card">
+        <div>
+          <div class="name">Flávio Bolsonaro</div>
+          <div class="role">Senador pelo Rio de Janeiro · PL</div>
+        </div>
+        <div class="cand-stats">
+          <div class="stat n-watch"><div class="n">8</div><div class="lbl">anos c/ investigação ou acusação</div></div>
+          <div class="stat n-convict"><div class="n">0</div><div class="lbl">anos c/ condenação vigente</div></div>
+          <div class="stat n-clear"><div class="n">14</div><div class="lbl">anos sem ocorrência</div></div>
+        </div>
+        <p class="cand-now"><b>Situação em 2026:</b> o caso da "rachadinha" foi encerrado sem condenação (2024–2025). Segue como pré-candidato à Presidência em meio a turbulências ligadas a pessoas de seu círculo político (caso Banco Master), sem denúncia formal de corrupção contra ele até a publicação desta página.</p>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<section class="divider-top" aria-labelledby="linha-h">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <p class="kicker">Ano a ano · 2005–2026</p>
+        <h2 id="linha-h">A ficha corrida completa</h2>
+      </div>
+    </div>
+
+    <div class="controls">
+      <div class="grp" role="group" aria-label="Filtrar candidato">
+        <button class="chip" data-cand="lula" aria-pressed="true"><span class="dot"></span>Lula</button>
+        <button class="chip" data-cand="renan" aria-pressed="true"><span class="dot"></span>Renan</button>
+        <button class="chip" data-cand="flavio" aria-pressed="true"><span class="dot"></span>Flávio</button>
+      </div>
+      <label class="toggle-only">
+        <input type="checkbox" id="onlyActive">
+        Mostrar só anos com alguma ocorrência
+      </label>
+    </div>
+
+    <div class="timeline" id="timeline">
+
+      <!-- 2005 -->
+      <div class="year-row" data-active="true">
+        <div class="year-label">2005</div>
+        <div class="cell status-green" data-cand="lula">
+          <span class="tag">Sem ocorrência p/ Lula</span>
+          <h4>Escândalo do Mensalão</h4>
+          <p>O esquema de pagamentos a parlamentares atinge dirigentes do PT e do governo, mas o STF nunca incluiu Lula entre os réus da Ação Penal 470 — ele depôs apenas como testemunha.</p>
+          <div class="refs"><a href="#s1">1</a><a href="#s2">2</a></div>
+        </div>
+        <div class="cell empty status-green" data-cand="renan"><p>Sem ocorrência registrada.</p></div>
+        <div class="cell empty status-green" data-cand="flavio"><p>Sem ocorrência registrada.</p></div>
+      </div>
+
+      <!-- 2006 -->
+      <div class="year-row" data-active="false">
+        <div class="year-label">2006</div>
+        <div class="cell empty status-green" data-cand="lula"><p>Sem ocorrência registrada.</p></div>
+        <div class="cell empty status-green" data-cand="renan"><p>Sem ocorrência registrada.</p></div>
+        <div class="cell empty status-green" data-cand="flavio"><p>Sem ocorrência registrada.</p></div>
+      </div>
+
+      <!-- 2007 -->
+      <div class="year-row" data-active="false">
+        <div class="year-label">2007</div>
+        <div class="cell empty status-green" data-cand="lula"><p>Sem ocorrência registrada.</p></div>
+        <div class="cell empty status-green" data-cand="renan"><p>Sem ocorrência registrada.</p></div>
+        <div class="cell empty status-green" data-cand="flavio"><p>Sem ocorrência registrada.</p></div>
+      </div>
+
+      <!-- 2008-2015 collapsed individually for accuracy -->
+      <div class="year-row" data-active="false">
+        <div class="year-label">2008</div>
+        <div class="cell empty status-green" data-cand="lula"><p>Sem ocorrência registrada.</p></div>
+        <div class="cell empty status-green" data-cand="renan"><p>Sem ocorrência registrada. O MBL, do qual Renan Santos seria cofundador, ainda não existia.</p></div>
+        <div class="cell empty status-green" data-cand="flavio"><p>Sem ocorrência registrada.</p></div>
+      </div>
+      <div class="year-row" data-active="false">
+        <div class="year-label">2009</div>
+        <div class="cell empty status-green" data-cand="lula"><p>Sem ocorrência registrada.</p></div>
+        <div class="cell empty status-green" data-cand="renan"><p>Sem ocorrência registrada nas fontes consultadas.</p></div>
+        <div class="cell empty status-green" data-cand="flavio"><p>Sem ocorrência registrada.</p></div>
+      </div>
+      <div class="year-row" data-active="false">
+        <div class="year-label">2010</div>
+        <div class="cell empty status-green" data-cand="lula"><p>Sem ocorrência registrada.</p></div>
+        <div class="cell empty status-green" data-cand="renan"><p>Sem ocorrência registrada nas fontes consultadas.</p></div>
+        <div class="cell empty status-green" data-cand="flavio"><p>Sem ocorrência registrada.</p></div>
+      </div>
+      <div class="year-row" data-active="false">
+        <div class="year-label">2011</div>
+        <div class="cell empty status-green" data-cand="lula"><p>Sem ocorrência registrada.</p></div>
+        <div class="cell empty status-green" data-cand="renan"><p>Sem ocorrência registrada nas fontes consultadas.</p></div>
+        <div class="cell empty status-green" data-cand="flavio"><p>Sem ocorrência registrada.</p></div>
+      </div>
+      <div class="year-row" data-active="false">
+        <div class="year-label">2012</div>
+        <div class="cell empty status-green" data-cand="lula"><p>Julgamento final do Mensalão pelo STF — Lula não figurava entre os réus.</p></div>
+        <div class="cell empty status-green" data-cand="renan"><p>Sem ocorrência registrada nas fontes consultadas.</p></div>
+        <div class="cell empty status-green" data-cand="flavio"><p>Sem ocorrência registrada.</p></div>
+      </div>
+      <div class="year-row" data-active="false">
+        <div class="year-label">2013</div>
+        <div class="cell empty status-green" data-cand="lula"><p>Sem ocorrência registrada.</p></div>
+        <div class="cell empty status-green" data-cand="renan"><p>Sem ocorrência registrada nas fontes consultadas.</p></div>
+        <div class="cell empty status-green" data-cand="flavio"><p>Sem ocorrência registrada.</p></div>
+      </div>
+      <div class="year-row" data-active="false">
+        <div class="year-label">2014</div>
+        <div class="cell empty status-green" data-cand="lula"><p>A Operação Lava Jato é deflagrada (mar/2014), mas ainda não atinge Lula diretamente.</p></div>
+        <div class="cell empty status-green" data-cand="renan"><p>Fundação do Movimento Brasil Livre (MBL), do qual Renan Santos é um dos três coordenadores nacionais (dez/2014). Sem ocorrência de corrupção.</p></div>
+        <div class="cell empty status-green" data-cand="flavio"><p>Sem ocorrência registrada.</p></div>
+      </div>
+      <div class="year-row" data-active="false">
+        <div class="year-label">2015</div>
+        <div class="cell empty status-green" data-cand="lula"><p>Sem denúncia formal ainda neste ano nas fontes consultadas.</p></div>
+        <div class="cell empty status-green" data-cand="renan"><p>O MBL, com Renan Santos na coordenação, lidera atos pelo impeachment de Dilma Rousseff. Reportagens da época questionam a origem do financiamento do movimento, mas não há investigação formal por corrupção neste ano.</p></div>
+        <div class="cell empty status-green" data-cand="flavio"><p>Sem ocorrência registrada.</p></div>
+      </div>
+
+      <!-- 2016 -->
+      <div class="year-row" data-active="true">
+        <div class="year-label">2016</div>
+        <div class="cell status-orange" data-cand="lula">
+          <span class="tag">Denúncia · réu</span>
+          <h4>Caso do tríplex do Guarujá (Lava Jato)</h4>
+          <p>O MPF denuncia Lula por corrupção passiva e lavagem de dinheiro (14/set). O juiz Sergio Moro aceita a denúncia e ele se torna réu pela primeira vez na Lava Jato (20/set).</p>
+          <div class="refs"><a href="#s3">3</a><a href="#s4">4</a></div>
+        </div>
+        <div class="cell status-green" data-cand="renan">
+          <span class="tag">Sem ocorrência de corrupção</span>
+          <h4>Revelações sobre o financiamento do MBL</h4>
+          <p>Áudios revelados pela imprensa indicam apoio de partidos (PMDB, PSDB, DEM, Solidariedade) ao financiamento de atos do MBL, contrariando o discurso de movimento "apartidário" e autofinanciado — mas sem abertura de investigação formal por corrupção neste ano.</p>
+          <div class="refs"><a href="#s26">26</a></div>
+        </div>
+        <div class="cell empty status-green" data-cand="flavio"><p>Sem ocorrência registrada.</p></div>
+      </div>
+
+      <!-- 2017 -->
+      <div class="year-row" data-active="true">
+        <div class="year-label">2017</div>
+        <div class="cell status-red" data-cand="lula">
+          <span class="tag">Condenação (1ª instância)</span>
+          <h4>Tríplex do Guarujá</h4>
+          <p>O juiz Sergio Moro condena Lula a 9 anos e 6 meses de prisão por corrupção passiva e lavagem de dinheiro (jul/2017). <em>Anulada pelo STF em 2021 — ver 2021.</em></p>
+          <div class="refs"><a href="#s3">3</a><a href="#s4">4</a></div>
+        </div>
+        <div class="cell empty status-green" data-cand="renan"><p>Sem ocorrência registrada nas fontes consultadas.</p></div>
+        <div class="cell empty status-green" data-cand="flavio"><p>Sem ocorrência registrada.</p></div>
+      </div>
+
+      <!-- 2018 -->
+      <div class="year-row" data-active="true">
+        <div class="year-label">2018</div>
+        <div class="cell status-red" data-cand="lula">
+          <span class="tag">Condenação (2ª instância) · preso</span>
+          <h4>Tríplex do Guarujá</h4>
+          <p>O TRF-4 confirma a condenação e aumenta a pena para 12 anos e 1 mês (jan/2018). Lula é preso em abril/2018. <em>Condenação anulada pelo STF em 2021 — ver 2021.</em></p>
+          <div class="refs"><a href="#s5">5</a><a href="#s6">6</a></div>
+        </div>
+        <div class="cell empty status-green" data-cand="renan"><p>Sem ocorrência registrada nas fontes consultadas.</p></div>
+        <div class="cell status-orange" data-cand="flavio">
+          <span class="tag">Investigação</span>
+          <h4>Início do caso "rachadinha"</h4>
+          <p>O Ministério Público do Rio abre investigação após relatório do Coaf apontar movimentação atípica de R$ 1,2 milhão na conta do então assessor Fabrício Queiroz, no período em que Flávio era deputado estadual na Alerj.</p>
+          <div class="refs"><a href="#s37">37</a><a href="#s34">34</a></div>
+        </div>
+      </div>
+
+      <!-- 2019 -->
+      <div class="year-row" data-active="true">
+        <div class="year-label">2019</div>
+        <div class="cell status-red" data-cand="lula">
+          <span class="tag">2ª condenação · solto em nov.</span>
+          <h4>Sítio de Atibaia</h4>
+          <p>A juíza Gabriela Hardt condena Lula a 12 anos e 11 meses de prisão por corrupção e lavagem de dinheiro. Em novembro, o STF proíbe a execução de pena antes do trânsito em julgado e Lula é solto — mas as duas condenações continuam formalmente vigentes. <em>Ambas anuladas em 2021 — ver 2021.</em></p>
+          <div class="refs"><a href="#s5">5</a><a href="#s6">6</a></div>
+        </div>
+        <div class="cell empty status-green" data-cand="renan"><p>Sem ocorrência registrada nas fontes consultadas.</p></div>
+        <div class="cell status-orange" data-cand="flavio">
+          <span class="tag">Investigação avança</span>
+          <h4>"Escritório do crime" e busca e apreensão</h4>
+          <p>Em janeiro, vem à tona que o gabinete de Flávio na Alerj empregava mãe e mulher do miliciano Adriano da Nóbrega, apontado como chefe do "Escritório do Crime" e suspeito de ligação com o assassinato de Marielle Franco. Em dezembro, a Justiça autoriza busca e apreensão em endereços ligados a Flávio e Queiroz.</p>
+          <div class="refs"><a href="#s35">35</a><a href="#s36">36</a></div>
+        </div>
+      </div>
+
+      <!-- 2020 -->
+      <div class="year-row" data-active="true">
+        <div class="year-label">2020</div>
+        <div class="cell status-red" data-cand="lula">
+          <span class="tag">Condenações vigentes</span>
+          <h4>Tríplex e sítio de Atibaia</h4>
+          <p>As duas condenações seguem formalmente em vigor enquanto recursos tramitam no STJ e no STF, sem decisão de mérito neste ano.</p>
+          <div class="refs"><a href="#s5">5</a></div>
+        </div>
+        <div class="cell status-orange" data-cand="renan">
+          <span class="tag">Busca e apreensão · denúncia rejeitada</span>
+          <h4>Operação Juno Moneta e denúncia por tráfico de influência</h4>
+          <p>Em julho, o MP-SP, a Polícia Civil e a Receita Federal deflagram a Operação Juno Moneta, com busca e apreensão contra empresas da família de Renan Santos, por suspeita de lavagem de dinheiro (uso de "laranja" e empresas de fachada para movimentar recursos). Em novembro, a Justiça de São Paulo rejeita uma denúncia do MP-SP por tráfico de influência apresentada contra ele, por entender que faltam elementos que demonstrem pedido ou obtenção de vantagem.</p>
+          <div class="refs"><a href="#s17">17</a><a href="#s18">18</a><a href="#s19">19</a></div>
+        </div>
+        <div class="cell status-orange" data-cand="flavio">
+          <span class="tag">Denúncia formal</span>
+          <h4>MP-RJ denuncia Flávio por organização criminosa</h4>
+          <p>O Ministério Público do Rio denuncia Flávio Bolsonaro, Fabrício Queiroz e mais 15 pessoas por organização criminosa, lavagem de dinheiro, peculato e evasão de divisas, referentes a fatos entre 2007 e 2018 (nov/2020).</p>
+          <div class="refs"><a href="#s31">31</a><a href="#s32">32</a></div>
+        </div>
+      </div>
+
+      <!-- 2021 -->
+      <div class="year-row" data-active="true">
+        <div class="year-label">2021</div>
+        <div class="cell status-orange" data-cand="lula">
+          <span class="tag">Condenações anuladas</span>
+          <h4>Lava Jato: anulação em cadeia</h4>
+          <p>Em março, o ministro Edson Fachin (STF) anula as quatro decisões condenatórias da Lava Jato contra Lula — tríplex, sítio de Atibaia, sede do Instituto Lula e doações ao instituto — por incompetência da Justiça Federal do Paraná; o Plenário referenda a decisão. Em junho, a 2ª Turma do STF reconhece a parcialidade do ex-juiz Sergio Moro na condução do caso do tríplex. Em agosto, a Justiça de Brasília rejeita a denúncia reapresentada pelo MPF no caso do sítio de Atibaia.</p>
+          <div class="refs"><a href="#s6">6</a><a href="#s7">7</a><a href="#s8">8</a></div>
+        </div>
+        <div class="cell empty status-green" data-cand="renan"><p>Sem ocorrência registrada nas fontes consultadas.</p></div>
+        <div class="cell status-orange" data-cand="flavio">
+          <span class="tag">Foro no STJ</span>
+          <h4>Disputa sobre provas do Coaf</h4>
+          <p>Por seu foro por prerrogativa de função como senador, o caso passa a tramitar no STJ; a defesa questiona a validade dos relatórios de inteligência financeira (RIFs) do Coaf usados como prova, abrindo uma longa disputa jurídica sobre a admissibilidade das provas.</p>
+          <div class="refs"><a href="#s33">33</a><a href="#s34">34</a></div>
+        </div>
+      </div>
+
+      <!-- 2022 -->
+      <div class="year-row" data-active="true">
+        <div class="year-label">2022</div>
+        <div class="cell status-orange" data-cand="lula">
+          <span class="tag">Arquivado por prescrição</span>
+          <h4>Tríplex do Guarujá — fim de linha</h4>
+          <p>A 12ª Vara Federal Criminal do DF declara a prescrição e arquiva definitivamente a ação penal do tríplex (jan/2022), encerrando o processo sem condenação válida.</p>
+          <div class="refs"><a href="#s9">9</a><a href="#s10">10</a></div>
+        </div>
+        <div class="cell status-orange" data-cand="renan">
+          <span class="tag">Investigação ampliada</span>
+          <h4>Lavagem de dinheiro: MP aprofunda a Juno Moneta</h4>
+          <p>O Ministério Público de SP amplia a investigação sobre as finanças da família de Renan Santos, com autorização da Justiça para aprofundar a quebra de sigilo bancário. Segundo a apuração, a família teria comprado ou aberto cerca de 20 empresas hoje inativas, com dívidas somadas de R$ 396 a 400 milhões à Receita Federal; a Justiça aponta movimentações financeiras de Renan entre 2016 e 2019 incompatíveis com os rendimentos declarados.</p>
+          <div class="refs"><a href="#s19">19</a><a href="#s20">20</a><a href="#s21">21</a><a href="#s22">22</a></div>
+        </div>
+        <div class="cell status-orange" data-cand="flavio">
+          <span class="tag">Recursos em curso</span>
+          <h4>Ação penal segue suspensa</h4>
+          <p>Prosseguem no STJ e no STF os recursos sobre a validade das provas do Coaf; a ação penal permanece suspensa, sem julgamento de mérito.</p>
+          <div class="refs"><a href="#s34">34</a></div>
+        </div>
+      </div>
+
+      <!-- 2023 -->
+      <div class="year-row" data-active="true">
+        <div class="year-label">2023</div>
+        <div class="cell empty status-green" data-cand="lula"><p>Sem novas ocorrências documentadas contra Lula pessoalmente.</p></div>
+        <div class="cell empty status-green" data-cand="renan"><p>Sem ocorrência registrada nas fontes consultadas.</p></div>
+        <div class="cell status-orange" data-cand="flavio">
+          <span class="tag">Provas anuladas</span>
+          <h4>Anulação parcial dos RIFs do Coaf</h4>
+          <p>A 2ª Turma do STF anula quatro dos cinco relatórios de inteligência financeira do Coaf que embasavam a denúncia, enfraquecendo a acusação.</p>
+          <div class="refs"><a href="#s34">34</a></div>
+        </div>
+      </div>
+
+      <!-- 2024 -->
+      <div class="year-row" data-active="true">
+        <div class="year-label">2024</div>
+        <div class="cell empty status-green" data-cand="lula"><p>Sem novas ocorrências documentadas contra Lula pessoalmente.</p></div>
+        <div class="cell empty status-green" data-cand="renan"><p>Sem ocorrência registrada nas fontes consultadas.</p></div>
+        <div class="cell status-orange" data-cand="flavio">
+          <span class="tag">Caso encerrado</span>
+          <h4>"Rachadinha" — reabertura negada</h4>
+          <p>O ministro Gilmar Mendes nega recursos do Ministério Público para reabrir a apuração, por entendê-los fora do prazo. Na prática, o caso da rachadinha fica encerrado (fev/2024).</p>
+          <div class="refs"><a href="#s34">34</a></div>
+        </div>
+      </div>
+
+      <!-- 2025 -->
+      <div class="year-row" data-active="true">
+        <div class="year-label">2025</div>
+        <div class="cell empty status-green" data-cand="lula"><p>Sem novas ocorrências documentadas contra Lula pessoalmente.</p></div>
+        <div class="cell empty status-green" data-cand="renan"><p>Sem ocorrência registrada nas fontes consultadas.</p></div>
+        <div class="cell status-orange" data-cand="flavio">
+          <span class="tag">Caso fechado · nova polêmica</span>
+          <h4>Fim da "rachadinha" e caso Banco Master</h4>
+          <p>O STF nega definitivamente nova tentativa de reabertura do caso rachadinha: o processo permanece encerrado sem condenação. Em paralelo, ganha repercussão a relação de Flávio com Daniel Vorcaro, dono do Banco Master — liquidado extrajudicialmente e preso por lavagem de dinheiro em novembro/2025; segundo a CNN Brasil, áudios mostram Flávio pedindo dinheiro a Vorcaro para financiar um filme sobre o pai. Não há denúncia formal de corrupção contra o senador nessa frente.</p>
+          <div class="refs"><a href="#s34">34</a><a href="#s38">38</a></div>
+        </div>
+      </div>
+
+      <!-- 2026 -->
+      <div class="year-row" data-active="true">
+        <div class="year-label">2026</div>
+        <div class="cell status-green" data-cand="lula">
+          <span class="tag">Sem ocorrência p/ Lula</span>
+          <h4>Investigações mencionam o filho, não Lula</h4>
+          <p>Em 2026, o filho de Lula, Fábio Luís Lula da Silva ("Lulinha"), passou a ser alvo de inquéritos da Polícia Federal por suspeita de tráfico de influência (Ministério da Saúde/cannabis medicinal, Dataprev) e é citado no inquérito sobre desvios no INSS. É uma investigação contra terceiro — o próprio Lula não é formalmente investigado nesses casos até a publicação desta página.</p>
+          <div class="refs"><a href="#s11">11</a><a href="#s12">12</a><a href="#s13">13</a></div>
+        </div>
+        <div class="cell status-green" data-cand="renan">
+          <span class="tag">Sem ocorrência de corrupção</span>
+          <h4>Candidatura, dívidas fiscais e ação por discurso de ódio</h4>
+          <p>Torna-se candidato à Presidência pelo partido Missão (jul–ago/2026). Não há nova apuração por corrupção documentada neste ano: ele acumula R$ 1,1 milhão em dívidas tributárias pessoais com a União e a Previdência — uma questão fiscal, não uma acusação de corrupção — e responde, junto com o MBL, a uma ação civil pública do MPF por discurso de ódio contra povos indígenas, também sem relação com corrupção.</p>
+          <div class="refs"><a href="#s23">23</a><a href="#s24">24</a><a href="#s25">25</a></div>
+        </div>
+        <div class="cell status-green" data-cand="flavio">
+          <span class="tag">Sem denúncia formal</span>
+          <h4>Turbulência no entorno, sem acusação direta</h4>
+          <p>Em fevereiro, a Justiça do DF manda remover uma publicação que atribuía falsamente a Flávio um esquema de lavagem via Banco Master, por considerá-la difamatória e sem provas. Em agosto, a Polícia Federal abre inquérito, a pedido do TSE, para apurar uma fraude que alterou sua filiação partidária no sistema eleitoral (ele teria sido incluído no partido Missão sem autorização) — nesse caso, apura-se quem cometeu a fraude, e Flávio aparece como alvo do ataque, não como suspeito. Até a publicação desta página, não há denúncia formal de corrupção contra o senador relativa a fatos de 2025–2026.</p>
+          <div class="refs"><a href="#s39">39</a><a href="#s40">40</a></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="divider-top" aria-labelledby="metodo-h">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <p class="kicker">Transparência</p>
+        <h2 id="metodo-h">Metodologia e limites</h2>
+      </div>
+    </div>
+    <div class="method-grid">
+      <div class="method-card">
+        <h4>O critério de cor é o fato mais grave do ano</h4>
+        <p>Quando um ano teve mais de um evento (ex.: denúncia e depois absolvição), a célula é colorida pelo estágio mais grave alcançado, e o texto descreve toda a sequência.</p>
+      </div>
+      <div class="method-card">
+        <h4>Verde não significa "inocente para sempre"</h4>
+        <p>Significa apenas que, nas fontes consultadas, não há registro de investigação, acusação ou condenação por corrupção naquele ano específico. Uma apuração pode existir sem cobertura pública suficiente para ser incluída aqui com segurança.</p>
+      </div>
+      <div class="method-card">
+        <h4>Condenação anulada continua marcada em vermelho no ano em que valeu</h4>
+        <p>As condenações de Lula em 2017–2019 foram formalmente anuladas pelo STF em 2021. Elas seguem em vermelho nos anos em que estiveram vigentes, porque de fato houve condenação — a anulação é registrada no ano em que ocorreu (2021) e no resumo do card do candidato.</p>
+      </div>
+      <div class="method-card">
+        <h4>Terceiros não contam como o candidato</h4>
+        <p>Investigações contra familiares, assessores ou aliados (ex.: o filho de Lula, ou pessoas do entorno de Flávio Bolsonaro) só entram na ficha do próprio candidato quando ele é formalmente investigado, denunciado ou condenado — não pela proximidade com o investigado.</p>
+      </div>
+      <div class="method-card">
+        <h4>Fatos de 2025–2026 são os mais instáveis</h4>
+        <p>Processos recentes mudam rápido. Itens desse período foram tratados com cautela redobrada, distinguindo reportagem confirmada de acusação não comprovada — e sinalizando quando a própria Justiça já classificou uma alegação como falsa.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="divider-top sources" aria-labelledby="fontes-h">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <p class="kicker">Bibliografia</p>
+        <h2 id="fontes-h">Todas as fontes consultadas</h2>
+      </div>
+    </div>
+
+    <div class="source-group">
+      <h3>Luiz Inácio Lula da Silva <span class="n">— 13 referências</span></h3>
+      <ol class="source-list">
+        <li id="s1"><span class="idx">01</span><span><a href="https://www.stf.jus.br/arquivo/cms/publicacaoBOInternet/anexo/link_download/casos_relevantes/pt/AP_470.pdf" target="_blank" rel="noopener">AP 470 — Julgamento do Mensalão: resumo do caso</a><span class="source-outlet">Portal STF</span></span></li>
+        <li id="s2"><span class="idx">02</span><span><a href="https://www.conjur.com.br/2010-abr-08/ministros-stf-mantem-lula-fora-lista-reus-mensalao/" target="_blank" rel="noopener">Ministros do STF mantêm Lula fora da lista de réus do mensalão</a><span class="source-outlet">Consultor Jurídico (ConJur), 2010</span></span></li>
+        <li id="s3"><span class="idx">03</span><span><a href="https://museudalavajato.com.br/juridico-lava-jato-lula/processo-lula-triplex-do-guaruja-5046512-94-2016-4-04-7000/" target="_blank" rel="noopener">Processo Lula — Tríplex do Guarujá (dados processuais)</a><span class="source-outlet">Museu da Lava Jato</span></span></li>
+        <li id="s4"><span class="idx">04</span><span><a href="https://www.correio24horas.com.br/brasil/o-que-diz-a-acusacao-contra-lula-no-caso-triplex-e-a-defesa-0118" target="_blank" rel="noopener">O que diz a acusação contra Lula no caso tríplex? E a defesa?</a><span class="source-outlet">Correio24Horas</span></span></li>
+        <li id="s5"><span class="idx">05</span><span><a href="https://www.migalhas.com.br/quentes/343754/stf-derruba-condenacoes-de-lula-na-lava-jato" target="_blank" rel="noopener">STF derruba condenações de Lula na Lava Jato</a><span class="source-outlet">Migalhas</span></span></li>
+        <li id="s6"><span class="idx">06</span><span><a href="https://portal.stf.jus.br/noticias/verNoticiaDetalhe.asp?idConteudo=461870&ori=1" target="_blank" rel="noopener">Fachin anula condenações de Lula e manda ações penais para a Justiça Federal do DF</a><span class="source-outlet">Portal STF — Notícias</span></span></li>
+        <li id="s7"><span class="idx">07</span><span><a href="https://portal.stf.jus.br/noticias/verNoticiaDetalhe.asp?idConteudo=464261" target="_blank" rel="noopener">STF confirma anulação de condenações do ex-presidente Lula na Lava Jato</a><span class="source-outlet">Portal STF — Notícias</span></span></li>
+        <li id="s8"><span class="idx">08</span><span><a href="https://www.cnnbrasil.com.br/politica/juiza-de-brasilia-rejeita-denuncia-contra-lula-sobre-sitio-de-atibaia/" target="_blank" rel="noopener">Juíza de Brasília rejeita denúncia contra Lula no caso do sítio de Atibaia</a><span class="source-outlet">CNN Brasil</span></span></li>
+        <li id="s9"><span class="idx">09</span><span><a href="https://www.conjur.com.br/2022-jan-28/justica-df-declara-prescricao-arquiva-acao-triplex-guaruja/" target="_blank" rel="noopener">Justiça do DF declara prescrição e arquiva ação do tríplex do Guarujá</a><span class="source-outlet">ConJur, 2022</span></span></li>
+        <li id="s10"><span class="idx">10</span><span><a href="https://www.cnnbrasil.com.br/politica/justica-do-df-arquiva-caso-do-triplex-envolvendo-o-ex-presidente-lula/" target="_blank" rel="noopener">Justiça do DF arquiva caso do tríplex envolvendo o ex-presidente Lula</a><span class="source-outlet">CNN Brasil</span></span></li>
+        <li id="s11"><span class="idx">11</span><span><a href="https://www.em.com.br/politica/2026/07/7471299-lulinha-investigado-por-trafico-de-influencia-e-corrupcao-do-inss-a-lava-jato-o-que-pesa-contra-o-filho-de-lula.html" target="_blank" rel="noopener">Lulinha investigado por tráfico de influência e corrupção: do INSS à Lava Jato</a><span class="source-outlet">Estado de Minas, 2026</span></span></li>
+        <li id="s12"><span class="idx">12</span><span><a href="https://revistaforum.com.br/politica/pf-novo-inquerito-lulinha/" target="_blank" rel="noopener">PF pede abertura de 3º inquérito contra Lulinha por suspeita de tráfico de influência</a><span class="source-outlet">Revista Fórum, 2026</span></span></li>
+        <li id="s13"><span class="idx">13</span><span><a href="https://www.otempo.com.br/politica/2026/8/23/se-cometeu-erro-sera-julgado-diz-lula-sobre-investigacoes-que-miram-lulinha" target="_blank" rel="noopener">"Se cometeu erro, será julgado", diz Lula sobre investigações que miram Lulinha</a><span class="source-outlet">O Tempo, 2026</span></span></li>
+      </ol>
+    </div>
+
+    <div class="source-group">
+      <h3>Renan Santos <span class="n">— 13 referências</span></h3>
+      <ol class="source-list">
+        <li id="s14"><span class="idx">14</span><span><a href="https://www.cnnbrasil.com.br/eleicoes/quem-e-renan-santos-candidato-do-partido-missao-a-presidencia/" target="_blank" rel="noopener">Quem é Renan Santos, candidato do partido Missão à Presidência</a><span class="source-outlet">CNN Brasil, 2026</span></span></li>
+        <li id="s15"><span class="idx">15</span><span><a href="https://www.gazetadopovo.com.br/ideias/quem-e-renan-santos-o-fundador-do-mbl-que-vai-concorrer-a-presidencia-da-republica/" target="_blank" rel="noopener">Quem é Renan Santos, do MBL que vai concorrer a presidente</a><span class="source-outlet">Gazeta do Povo, 2026</span></span></li>
+        <li id="s16"><span class="idx">16</span><span><a href="https://www.brasildefato.com.br/2026/08/01/partido-missao-oficializa-candidatura-de-renan-santos-a-presidencia/" target="_blank" rel="noopener">Partido Missão confirma candidatura de Renan Santos à presidência</a><span class="source-outlet">Brasil de Fato, 2026</span></span></li>
+        <li id="s17"><span class="idx">17</span><span><a href="https://www.conjur.com.br/2020-nov-06/justica-rejeita-denuncia-renan-santos-trafico-influencia/" target="_blank" rel="noopener">Justiça rejeita denúncia contra Renan Santos por tráfico de influência</a><span class="source-outlet">ConJur, 2020</span></span></li>
+        <li id="s18"><span class="idx">18</span><span><a href="https://www.cartacapital.com.br/cartaexpressa/mp-denuncia-lider-do-mbl-renan-dos-santos-por-trafico-de-influencia/" target="_blank" rel="noopener">MP denuncia líder do MBL, Renan dos Santos, por tráfico de influência</a><span class="source-outlet">CartaCapital, 2020</span></span></li>
+        <li id="s19"><span class="idx">19</span><span><a href="https://www.metropoles.com/brasil/entenda-por-que-promotoria-investiga-lavagem-de-dinheiro-no-mbl" target="_blank" rel="noopener">Entenda por que promotoria investiga lavagem de dinheiro no MBL</a><span class="source-outlet">Metrópoles</span></span></li>
+        <li id="s20"><span class="idx">20</span><span><a href="https://www.cartacapital.com.br/politica/mp-amplia-investigacao-contra-lider-do-mbl-por-suspeita-de-lavagem-de-dinheiro/" target="_blank" rel="noopener">MP amplia investigação contra líder do MBL por suspeita de lavagem de dinheiro</a><span class="source-outlet">CartaCapital, 2022</span></span></li>
+        <li id="s21"><span class="idx">21</span><span><a href="https://revistaforum.com.br/politica/2022/3/13/renan-dos-santos-do-mbl-tem-investigao-ampliada-pelo-mp-por-lavagem-de-dinheiro-111424.html" target="_blank" rel="noopener">Renan dos Santos do MBL tem investigação ampliada pelo MP por lavagem de dinheiro</a><span class="source-outlet">Revista Fórum, 2022</span></span></li>
+        <li id="s22"><span class="idx">22</span><span><a href="https://www.opovo.com.br/noticias/politica/2022/03/13/mp-amplia-investigacao-contra-renan-dos-santos-lider-do-mbl-por-suspeita-de-lavar-dinheiro.html" target="_blank" rel="noopener">MP amplia investigação contra Renan dos Santos, líder do MBL, por suspeita de lavar dinheiro</a><span class="source-outlet">O Povo, 2022</span></span></li>
+        <li id="s23"><span class="idx">23</span><span><a href="https://www.brasildefato.com.br/2026/04/08/pre-candidato-do-mbl-a-presidencia-da-republica-renan-santos-acumula-r-11-milhao-em-dividas-com-a-uniao-e-a-previdencia/" target="_blank" rel="noopener">Pré-candidato do MBL à Presidência, Renan Santos acumula R$ 1,1 milhão em dívidas com a União e a Previdência</a><span class="source-outlet">Brasil de Fato, 2026</span></span></li>
+        <li id="s24"><span class="idx">24</span><span><a href="https://www.poder360.com.br/poder-justica/procuradoria-cobra-divida-de-renan-santos-na-justica-federal-de-sp/" target="_blank" rel="noopener">Procuradoria cobra dívida de Renan Santos na Justiça Federal de SP</a><span class="source-outlet">Poder360</span></span></li>
+        <li id="s25"><span class="idx">25</span><span><a href="https://www.correiobraziliense.com.br/politica/2026/08/7484293-presidenciaveis-enfrentam-denuncias-e-investigacoes-na-corrida-eleitoral.html" target="_blank" rel="noopener">Presidenciáveis enfrentam denúncias e investigações na corrida eleitoral</a><span class="source-outlet">Correio Braziliense, 2026</span></span></li>
+        <li id="s26"><span class="idx">26</span><span><a href="https://www.brasildefato.com.br/2016/05/27/mbl-foi-apoiado-por-partidos-revelam-audios/" target="_blank" rel="noopener">MBL foi apoiado por partidos, revelam áudios</a><span class="source-outlet">Brasil de Fato, 2016</span></span></li>
+      </ol>
+    </div>
+
+    <div class="source-group">
+      <h3>Flávio Bolsonaro <span class="n">— 10 referências</span></h3>
+      <ol class="source-list">
+        <li id="s31"><span class="idx">31</span><span><a href="https://www.correiobraziliense.com.br/politica/2020/11/4886510-mp-denuncia-flavio-bolsonaro-e-queiroz-por-esquema-de-rachadinha.html" target="_blank" rel="noopener">MP denuncia Flávio Bolsonaro e Queiroz por esquema de "rachadinha"</a><span class="source-outlet">Correio Braziliense, 2020</span></span></li>
+        <li id="s32"><span class="idx">32</span><span><a href="https://www.brasildefato.com.br/2020/09/29/mp-conclui-investigacao-e-aponta-flavio-bolsonaro-como-lider-de-organizacao-criminosa/" target="_blank" rel="noopener">MP conclui investigação e aponta Flávio Bolsonaro como líder de organização criminosa</a><span class="source-outlet">Brasil de Fato, 2020</span></span></li>
+        <li id="s33"><span class="idx">33</span><span><a href="https://portal.stf.jus.br/noticias/verNoticiaDetalhe.asp?idConteudo=477496&ori=1" target="_blank" rel="noopener">2ª Turma decide sobre provas contra Flávio Bolsonaro no caso das chamadas</a><span class="source-outlet">Portal STF — Notícias</span></span></li>
+        <li id="s34"><span class="idx">34</span><span><a href="https://www.cartacapital.com.br/politica/o-que-aconteceu-com-o-caso-da-rachadinha-de-flavio-bolsonaro-suposto-candidato-em-2026/" target="_blank" rel="noopener">O que aconteceu com o caso da "rachadinha" de Flávio Bolsonaro, suposto candidato em 2026</a><span class="source-outlet">CartaCapital</span></span></li>
+        <li id="s35"><span class="idx">35</span><span><a href="https://www.jb.com.br/rio/2019/01/974236-flavio-bolsonaro-empregou-mae-e-mulher-de-chefe-do--escritorio-do-crime--em-seu-gabinete--diz-jornal.html" target="_blank" rel="noopener">Flávio Bolsonaro empregou mãe e mulher de chefe do "escritório do crime" em seu gabinete, diz jornal</a><span class="source-outlet">Jornal do Brasil, 2019</span></span></li>
+        <li id="s36"><span class="idx">36</span><span><a href="https://www.gazetadopovo.com.br/republica/miliciano-adriano-nobrega-integrava-nucleo-de-grupo-de-flavio-bolsonaro-diz-mp/" target="_blank" rel="noopener">Miliciano Adriano Nóbrega integrava "núcleo" de grupo de Flávio Bolsonaro, diz MP</a><span class="source-outlet">Gazeta do Povo</span></span></li>
+        <li id="s37"><span class="idx">37</span><span><a href="https://www.malaymail.com/news/money---international/2019/02/22/brazil-prosecutors-open-money-laundering-probe-into-presidents-son/1725615" target="_blank" rel="noopener">Brazil prosecutors open money laundering probe into president's son</a><span class="source-outlet">Malay Mail (AFP), 2019</span></span></li>
+        <li id="s38"><span class="idx">38</span><span><a href="https://www.cnnbrasil.com.br/politica/banco-master-veja-historico-de-posicionamentos-de-flavio-sobre-o-caso/" target="_blank" rel="noopener">Banco Master: veja histórico de posicionamentos de Flávio sobre o caso</a><span class="source-outlet">CNN Brasil</span></span></li>
+        <li id="s39"><span class="idx">39</span><span><a href="https://www.jota.info/justica/juiz-manda-facebook-apagar-conteudo-falso-ligando-flavio-bolsonaro-ao-caso-master" target="_blank" rel="noopener">Juiz manda Facebook apagar conteúdo falso ligando Flávio Bolsonaro ao caso Master</a><span class="source-outlet">JOTA, 2026</span></span></li>
+        <li id="s40"><span class="idx">40</span><span><a href="https://www.brasildefato.com.br/2026/08/19/pf-abre-inquerito-para-investigar-suposta-fraude-que-filiou-flavio-bolsonaro-ao-partido-missao/" target="_blank" rel="noopener">PF abre inquérito para investigar suposta fraude que filiou Flávio Bolsonaro ao partido Missão</a><span class="source-outlet">Brasil de Fato, 2026</span></span></li>
+      </ol>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p>Compilado em 24 de agosto de 2026 a partir de reportagem pública e decisões judiciais. Não é aconselhamento jurídico nem eleitoral. Para o status processual mais atual, consulte o <a href="https://portal.stf.jus.br/" target="_blank" rel="noopener">STF</a>, o <a href="https://www.stj.jus.br/" target="_blank" rel="noopener">STJ</a>, o <a href="https://www.mpf.mp.br/" target="_blank" rel="noopener">MPF</a> e o <a href="https://www.tse.jus.br/" target="_blank" rel="noopener">TSE</a> diretamente.</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var timeline = document.getElementById('timeline');
+  var chips = document.querySelectorAll('.chip[data-cand]');
+  var onlyActive = document.getElementById('onlyActive');
+  var state = { lula:true, renan:true, flavio:true };
+
+  function applyCandidateVisibility(){
+    var visible = Object.keys(state).filter(function(k){ return state[k]; }).length || 1;
+    timeline.style.setProperty('--cols', visible);
+    ['lula','renan','flavio'].forEach(function(c){
+      timeline.classList.toggle('hide-' + c, !state[c]);
+    });
+  }
+
+  chips.forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var c = btn.getAttribute('data-cand');
+      var activeCount = Object.keys(state).filter(function(k){ return state[k]; }).length;
+      if(state[c] && activeCount === 1){ return; } // keep at least one visible
+      state[c] = !state[c];
+      btn.setAttribute('aria-pressed', String(state[c]));
+      applyCandidateVisibility();
+    });
+  });
+
+  onlyActive.addEventListener('change', function(){
+    var rows = timeline.querySelectorAll('.year-row');
+    rows.forEach(function(row){
+      var active = row.getAttribute('data-active') === 'true';
+      row.classList.toggle('filtered-hide', onlyActive.checked && !active);
+    });
+  });
+})();
+</script>
+</body>
+</html>
