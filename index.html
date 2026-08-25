@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Linha do tempo ano a ano (2005-2026) das investigacoes, denuncias e condenacoes por corrupcao envolvendo Lula, Renan Santos e Flavio Bolsonaro, com fontes oficiais e jornalisticas.">
+<meta name="description" content="Linha do tempo ano a ano (2005-2026) das investigacoes, denuncias e condenacoes por corrupcao envolvendo Lula, Renan Santos, Flavio Bolsonaro, Romeu Zema e Ronaldo Caiado, com fontes oficiais e jornalisticas.">
 <title>Ficha Corrida</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Public+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
@@ -104,7 +104,7 @@
     text-wrap:balance;
     margin:0;
   }
-  .wrap{max-width:1120px; margin:0 auto; padding:0 24px;}
+  .wrap{max-width:1400px; margin:0 auto; padding:0 24px;}
   .prose{max-width:65ch;}
 
   /* ===== Masthead ===== */
@@ -136,7 +136,7 @@
     font-size:1.1rem;
     color:var(--ink-soft);
     margin-top:16px;
-    max-width:62ch;
+    max-width:72ch;
   }
   .masthead .names{
     font-style:italic;
@@ -211,10 +211,9 @@
   /* ===== Summary cards ===== */
   .summary-grid{
     display:grid;
-    grid-template-columns:repeat(3,1fr);
+    grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
     gap:18px;
   }
-  @media (max-width:860px){ .summary-grid{grid-template-columns:1fr;} }
   .cand-card{
     border:1px solid var(--line);
     background:var(--paper-raised);
@@ -283,11 +282,11 @@
   .toggle-only input{accent-color:var(--accent);}
 
   /* ===== Timeline / ledger ===== */
-  .timeline{--cols:3;}
+  .timeline{--cols:5;}
   .year-row{
     display:grid;
-    grid-template-columns:96px repeat(var(--cols),1fr);
-    gap:14px;
+    grid-template-columns:88px repeat(var(--cols),1fr);
+    gap:12px;
     padding:20px 0;
     border-top:1px solid var(--line);
     align-items:stretch;
@@ -309,16 +308,17 @@
   .cell{
     border-radius:8px;
     border:1px solid var(--line);
-    padding:14px 15px 13px;
+    padding:12px 13px 12px;
     display:flex; flex-direction:column; gap:6px;
     min-height:64px;
+    min-width:0;
   }
   .cell.status-green{background:var(--clear-bg); border-color:color-mix(in srgb, var(--clear) 35%, var(--line));}
   .cell.status-orange{background:var(--watch-bg); border-color:color-mix(in srgb, var(--watch) 40%, var(--line));}
   .cell.status-red{background:var(--convict-bg); border-color:color-mix(in srgb, var(--convict) 45%, var(--line));}
   .cell .tag{
     font-family:"IBM Plex Mono",monospace;
-    font-size:10.5px; letter-spacing:.06em; text-transform:uppercase;
+    font-size:10px; letter-spacing:.05em; text-transform:uppercase;
     font-weight:600;
   }
   .status-green .tag{color:var(--clear-ink);}
@@ -327,13 +327,13 @@
   .cell h4{
     font-family:"Public Sans",sans-serif;
     font-weight:700;
-    font-size:.94rem;
+    font-size:.9rem;
     line-height:1.3;
   }
   .status-green h4{color:var(--clear-ink);}
   .status-orange h4{color:var(--watch-ink);}
   .status-red h4{color:var(--convict-ink);}
-  .cell p{margin:0; font-size:.85rem; color:var(--ink);}
+  .cell p{margin:0; font-size:.82rem; color:var(--ink);}
   .cell.status-green p{color:var(--ink-soft);}
   .cell .refs{
     margin-top:auto;
@@ -354,12 +354,14 @@
   .cell.empty{
     justify-content:center;
   }
-  .cell.empty p{font-size:.82rem; font-style:italic;}
+  .cell.empty p{font-size:.8rem; font-style:italic;}
   .timeline.hide-lula .cell[data-cand="lula"],
   .timeline.hide-renan .cell[data-cand="renan"],
-  .timeline.hide-flavio .cell[data-cand="flavio"]{display:none;}
+  .timeline.hide-flavio .cell[data-cand="flavio"],
+  .timeline.hide-zema .cell[data-cand="zema"],
+  .timeline.hide-caiado .cell[data-cand="caiado"]{display:none;}
 
-  @media (max-width:760px){
+  @media (max-width:900px){
     .year-row{grid-template-columns:1fr; gap:8px;}
     .year-label{position:static; padding-top:0; font-size:1rem;
       display:flex; align-items:center; gap:8px;}
@@ -381,6 +383,11 @@
   /* ===== Sources ===== */
   .sources{
     background:var(--paper-sunk);
+  }
+  .source-cols{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+    gap:0 40px;
   }
   .source-group{margin-bottom:30px;}
   .source-group h3{
@@ -415,14 +422,6 @@
     text-decoration-color:color-mix(in srgb, var(--accent-ink) 40%, transparent);
   }
   .source-outlet{color:var(--ink-faint); font-size:.8rem; display:block; margin-top:1px;}
-  .no-wiki{
-    margin-top:8px;
-    font-size:.86rem;
-    color:var(--ink-soft);
-    border:1px dashed var(--line);
-    border-radius:6px;
-    padding:12px 14px;
-  }
 
   footer{
     border-top:1px solid var(--line);
@@ -440,12 +439,14 @@
     <h1>Ficha Corrida</h1>
     <p class="sub">Um raio-x, ano a ano, das investigações, denúncias e condenações por corrupção envolvendo
       <span class="names">Luiz Inácio Lula da Silva</span>,
-      <span class="names">Renan Santos</span> e
-      <span class="names">Flávio Bolsonaro</span> — três nomes cotados para a disputa presidencial de 2026.</p>
+      <span class="names">Renan Santos</span>,
+      <span class="names">Flávio Bolsonaro</span>,
+      <span class="names">Romeu Zema</span> e
+      <span class="names">Ronaldo Caiado</span> — cinco nomes cotados para a disputa presidencial de 2026.</p>
     <div class="stamp-row">
       <span class="stamp">2005 – 2026</span>
-      <span class="stamp">66 células de dados</span>
-      <span class="stamp">36 fontes primárias/jornalísticas</span>
+      <span class="stamp">110 células de dados</span>
+      <span class="stamp">53 fontes primárias/jornalísticas</span>
     </div>
     <div class="disclaimer">
       <strong>Antes de usar isto como prova de qualquer coisa:</strong> este material foi compilado a partir de
@@ -488,7 +489,7 @@
     <div class="section-head">
       <div>
         <p class="kicker">Panorama geral</p>
-        <h2 id="resumo-h">Os três, em números</h2>
+        <h2 id="resumo-h">Os cinco, em números</h2>
       </div>
     </div>
     <div class="summary-grid">
@@ -532,6 +533,32 @@
         <p class="cand-now"><b>Situação em 2026:</b> o caso da "rachadinha" foi encerrado sem condenação (2024–2025). Segue como pré-candidato à Presidência em meio a turbulências ligadas a pessoas de seu círculo político (caso Banco Master), sem denúncia formal de corrupção contra ele até a publicação desta página.</p>
       </article>
 
+      <article class="cand-card">
+        <div>
+          <div class="name">Romeu Zema</div>
+          <div class="role">Ex-governador de Minas Gerais · candidato à Presidência pelo Novo</div>
+        </div>
+        <div class="cand-stats">
+          <div class="stat n-watch"><div class="n">2</div><div class="lbl">anos c/ investigação ou acusação</div></div>
+          <div class="stat n-convict"><div class="n">0</div><div class="lbl">anos c/ condenação vigente</div></div>
+          <div class="stat n-clear"><div class="n">20</div><div class="lbl">anos sem ocorrência</div></div>
+        </div>
+        <p class="cand-now"><b>Situação em 2026:</b> não foi pessoalmente denunciado em nenhum processo. A Operação Rejeito (2025) expôs um esquema bilionário de propina no licenciamento ambiental de mineradoras em Minas, citando um decreto assinado por ele; a CPMI do INSS o convocou para depor sobre empréstimos consignados da financeira de sua família.</p>
+      </article>
+
+      <article class="cand-card">
+        <div>
+          <div class="name">Ronaldo Caiado</div>
+          <div class="role">Ex-governador de Goiás · candidato à Presidência pelo PSD</div>
+        </div>
+        <div class="cand-stats">
+          <div class="stat n-watch"><div class="n">2</div><div class="lbl">anos c/ investigação ou acusação</div></div>
+          <div class="stat n-convict"><div class="n">0</div><div class="lbl">anos c/ condenação vigente</div></div>
+          <div class="stat n-clear"><div class="n">20</div><div class="lbl">anos sem ocorrência</div></div>
+        </div>
+        <p class="cand-now"><b>Situação em 2026:</b> não foi pessoalmente denunciado em nenhum processo. Seu governo é alvo de apurações sobre fraude no Fundeb e pagamentos a empresas ligadas a um investigado por conexão com o PCC; após renunciar para concorrer à Presidência, responde a ação por improbidade movida pelo MP-GO por uso de escolta policial.</p>
+      </article>
+
     </div>
   </div>
 </section>
@@ -550,6 +577,8 @@
         <button class="chip" data-cand="lula" aria-pressed="true"><span class="dot"></span>Lula</button>
         <button class="chip" data-cand="renan" aria-pressed="true"><span class="dot"></span>Renan</button>
         <button class="chip" data-cand="flavio" aria-pressed="true"><span class="dot"></span>Flávio</button>
+        <button class="chip" data-cand="zema" aria-pressed="true"><span class="dot"></span>Zema</button>
+        <button class="chip" data-cand="caiado" aria-pressed="true"><span class="dot"></span>Caiado</button>
       </div>
       <label class="toggle-only">
         <input type="checkbox" id="onlyActive">
@@ -570,6 +599,8 @@
         </div>
         <div class="cell empty status-green" data-cand="renan"><p>Sem ocorrência registrada.</p></div>
         <div class="cell empty status-green" data-cand="flavio"><p>Sem ocorrência registrada.</p></div>
+        <div class="cell empty status-green" data-cand="zema"><p>Sem ocorrência registrada.</p></div>
+        <div class="cell empty status-green" data-cand="caiado"><p>Sem ocorrência registrada.</p></div>
       </div>
 
       <!-- 2006 -->
@@ -578,6 +609,8 @@
         <div class="cell empty status-green" data-cand="lula"><p>Sem ocorrência registrada.</p></div>
         <div class="cell empty status-green" data-cand="renan"><p>Sem ocorrência registrada.</p></div>
         <div class="cell empty status-green" data-cand="flavio"><p>Sem ocorrência registrada.</p></div>
+        <div class="cell empty status-green" data-cand="zema"><p>Sem ocorrência registrada.</p></div>
+        <div class="cell empty status-green" data-cand="caiado"><p>Sem ocorrência registrada.</p></div>
       </div>
 
       <!-- 2007 -->
@@ -586,6 +619,8 @@
         <div class="cell empty status-green" data-cand="lula"><p>Sem ocorrência registrada.</p></div>
         <div class="cell empty status-green" data-cand="renan"><p>Sem ocorrência registrada.</p></div>
         <div class="cell empty status-green" data-cand="flavio"><p>Sem ocorrência registrada.</p></div>
+        <div class="cell empty status-green" data-cand="zema"><p>Sem ocorrência registrada.</p></div>
+        <div class="cell empty status-green" data-cand="caiado"><p>Sem ocorrência registrada.</p></div>
       </div>
 
       <!-- 2008-2015 collapsed individually for accuracy -->
@@ -594,48 +629,64 @@
         <div class="cell empty status-green" data-cand="lula"><p>Sem ocorrência registrada.</p></div>
         <div class="cell empty status-green" data-cand="renan"><p>Sem ocorrência registrada. O MBL, do qual Renan Santos seria cofundador, ainda não existia.</p></div>
         <div class="cell empty status-green" data-cand="flavio"><p>Sem ocorrência registrada.</p></div>
+        <div class="cell empty status-green" data-cand="zema"><p>Sem ocorrência registrada.</p></div>
+        <div class="cell empty status-green" data-cand="caiado"><p>Sem ocorrência registrada.</p></div>
       </div>
       <div class="year-row" data-active="false">
         <div class="year-label">2009</div>
         <div class="cell empty status-green" data-cand="lula"><p>Sem ocorrência registrada.</p></div>
         <div class="cell empty status-green" data-cand="renan"><p>Sem ocorrência registrada nas fontes consultadas.</p></div>
         <div class="cell empty status-green" data-cand="flavio"><p>Sem ocorrência registrada.</p></div>
+        <div class="cell empty status-green" data-cand="zema"><p>Sem ocorrência registrada.</p></div>
+        <div class="cell empty status-green" data-cand="caiado"><p>Sem ocorrência registrada.</p></div>
       </div>
       <div class="year-row" data-active="false">
         <div class="year-label">2010</div>
         <div class="cell empty status-green" data-cand="lula"><p>Sem ocorrência registrada.</p></div>
         <div class="cell empty status-green" data-cand="renan"><p>Sem ocorrência registrada nas fontes consultadas.</p></div>
         <div class="cell empty status-green" data-cand="flavio"><p>Sem ocorrência registrada.</p></div>
+        <div class="cell empty status-green" data-cand="zema"><p>Sem ocorrência registrada.</p></div>
+        <div class="cell empty status-green" data-cand="caiado"><p>Sem ocorrência registrada.</p></div>
       </div>
       <div class="year-row" data-active="false">
         <div class="year-label">2011</div>
         <div class="cell empty status-green" data-cand="lula"><p>Sem ocorrência registrada.</p></div>
         <div class="cell empty status-green" data-cand="renan"><p>Sem ocorrência registrada nas fontes consultadas.</p></div>
         <div class="cell empty status-green" data-cand="flavio"><p>Sem ocorrência registrada.</p></div>
+        <div class="cell empty status-green" data-cand="zema"><p>Sem ocorrência registrada.</p></div>
+        <div class="cell empty status-green" data-cand="caiado"><p>Sem ocorrência registrada.</p></div>
       </div>
       <div class="year-row" data-active="false">
         <div class="year-label">2012</div>
         <div class="cell empty status-green" data-cand="lula"><p>Julgamento final do Mensalão pelo STF — Lula não figurava entre os réus.</p></div>
         <div class="cell empty status-green" data-cand="renan"><p>Sem ocorrência registrada nas fontes consultadas.</p></div>
         <div class="cell empty status-green" data-cand="flavio"><p>Sem ocorrência registrada.</p></div>
+        <div class="cell empty status-green" data-cand="zema"><p>Sem ocorrência registrada.</p></div>
+        <div class="cell empty status-green" data-cand="caiado"><p>Sem ocorrência registrada.</p></div>
       </div>
       <div class="year-row" data-active="false">
         <div class="year-label">2013</div>
         <div class="cell empty status-green" data-cand="lula"><p>Sem ocorrência registrada.</p></div>
         <div class="cell empty status-green" data-cand="renan"><p>Sem ocorrência registrada nas fontes consultadas.</p></div>
         <div class="cell empty status-green" data-cand="flavio"><p>Sem ocorrência registrada.</p></div>
+        <div class="cell empty status-green" data-cand="zema"><p>Sem ocorrência registrada.</p></div>
+        <div class="cell empty status-green" data-cand="caiado"><p>Sem ocorrência registrada.</p></div>
       </div>
       <div class="year-row" data-active="false">
         <div class="year-label">2014</div>
         <div class="cell empty status-green" data-cand="lula"><p>A Operação Lava Jato é deflagrada (mar/2014), mas ainda não atinge Lula diretamente.</p></div>
         <div class="cell empty status-green" data-cand="renan"><p>Fundação do Movimento Brasil Livre (MBL), do qual Renan Santos é um dos três coordenadores nacionais (dez/2014). Sem ocorrência de corrupção.</p></div>
         <div class="cell empty status-green" data-cand="flavio"><p>Sem ocorrência registrada.</p></div>
+        <div class="cell empty status-green" data-cand="zema"><p>Sem ocorrência registrada.</p></div>
+        <div class="cell empty status-green" data-cand="caiado"><p>Sem ocorrência registrada.</p></div>
       </div>
       <div class="year-row" data-active="false">
         <div class="year-label">2015</div>
         <div class="cell empty status-green" data-cand="lula"><p>Sem denúncia formal ainda neste ano nas fontes consultadas.</p></div>
         <div class="cell empty status-green" data-cand="renan"><p>O MBL, com Renan Santos na coordenação, lidera atos pelo impeachment de Dilma Rousseff. Reportagens da época questionam a origem do financiamento do movimento, mas não há investigação formal por corrupção neste ano.</p></div>
         <div class="cell empty status-green" data-cand="flavio"><p>Sem ocorrência registrada.</p></div>
+        <div class="cell empty status-green" data-cand="zema"><p>Sem ocorrência registrada.</p></div>
+        <div class="cell empty status-green" data-cand="caiado"><p>Toma posse como senador por Goiás (fev/2015). Sem ocorrência de corrupção.</p></div>
       </div>
 
       <!-- 2016 -->
@@ -654,6 +705,8 @@
           <div class="refs"><a href="#s26">26</a></div>
         </div>
         <div class="cell empty status-green" data-cand="flavio"><p>Sem ocorrência registrada.</p></div>
+        <div class="cell empty status-green" data-cand="zema"><p>Sem ocorrência registrada.</p></div>
+        <div class="cell empty status-green" data-cand="caiado"><p>Sem ocorrência registrada.</p></div>
       </div>
 
       <!-- 2017 -->
@@ -667,6 +720,8 @@
         </div>
         <div class="cell empty status-green" data-cand="renan"><p>Sem ocorrência registrada nas fontes consultadas.</p></div>
         <div class="cell empty status-green" data-cand="flavio"><p>Sem ocorrência registrada.</p></div>
+        <div class="cell empty status-green" data-cand="zema"><p>Sem ocorrência registrada.</p></div>
+        <div class="cell empty status-green" data-cand="caiado"><p>Sem ocorrência registrada.</p></div>
       </div>
 
       <!-- 2018 -->
@@ -685,6 +740,8 @@
           <p>O Ministério Público do Rio abre investigação após relatório do Coaf apontar movimentação atípica de R$ 1,2 milhão na conta do então assessor Fabrício Queiroz, no período em que Flávio era deputado estadual na Alerj.</p>
           <div class="refs"><a href="#s37">37</a><a href="#s34">34</a></div>
         </div>
+        <div class="cell empty status-green" data-cand="zema"><p>Elege-se governador de Minas Gerais (out/2018). Sem ocorrência de corrupção.</p></div>
+        <div class="cell empty status-green" data-cand="caiado"><p>Sem ocorrência registrada.</p></div>
       </div>
 
       <!-- 2019 -->
@@ -703,6 +760,8 @@
           <p>Em janeiro, vem à tona que o gabinete de Flávio na Alerj empregava mãe e mulher do miliciano Adriano da Nóbrega, apontado como chefe do "Escritório do Crime" e suspeito de ligação com o assassinato de Marielle Franco. Em dezembro, a Justiça autoriza busca e apreensão em endereços ligados a Flávio e Queiroz.</p>
           <div class="refs"><a href="#s35">35</a><a href="#s36">36</a></div>
         </div>
+        <div class="cell empty status-green" data-cand="zema"><p>Toma posse como governador de Minas Gerais (jan/2019). Sem ocorrência de corrupção.</p></div>
+        <div class="cell empty status-green" data-cand="caiado"><p>Sem ocorrência registrada.</p></div>
       </div>
 
       <!-- 2020 -->
@@ -726,6 +785,8 @@
           <p>O Ministério Público do Rio denuncia Flávio Bolsonaro, Fabrício Queiroz e mais 15 pessoas por organização criminosa, lavagem de dinheiro, peculato e evasão de divisas, referentes a fatos entre 2007 e 2018 (nov/2020).</p>
           <div class="refs"><a href="#s31">31</a><a href="#s32">32</a></div>
         </div>
+        <div class="cell empty status-green" data-cand="zema"><p>Sem ocorrência registrada nas fontes consultadas.</p></div>
+        <div class="cell empty status-green" data-cand="caiado"><p>Sem ocorrência registrada nas fontes consultadas.</p></div>
       </div>
 
       <!-- 2021 -->
@@ -744,6 +805,8 @@
           <p>Por seu foro por prerrogativa de função como senador, o caso passa a tramitar no STJ; a defesa questiona a validade dos relatórios de inteligência financeira (RIFs) do Coaf usados como prova, abrindo uma longa disputa jurídica sobre a admissibilidade das provas.</p>
           <div class="refs"><a href="#s33">33</a><a href="#s34">34</a></div>
         </div>
+        <div class="cell empty status-green" data-cand="zema"><p>Sem ocorrência registrada nas fontes consultadas.</p></div>
+        <div class="cell empty status-green" data-cand="caiado"><p>Sem ocorrência registrada nas fontes consultadas. O esquema de fraude no Fundeb apurado em 2025 tem origem em licitações deste período, mas só veio a público anos depois — ver 2025.</p></div>
       </div>
 
       <!-- 2022 -->
@@ -767,6 +830,8 @@
           <p>Prosseguem no STJ e no STF os recursos sobre a validade das provas do Coaf; a ação penal permanece suspensa, sem julgamento de mérito.</p>
           <div class="refs"><a href="#s34">34</a></div>
         </div>
+        <div class="cell empty status-green" data-cand="zema"><p>Reeleito governador de Minas Gerais (out/2022). Sem ocorrência de corrupção.</p></div>
+        <div class="cell empty status-green" data-cand="caiado"><p>Reeleito governador de Goiás (out/2022). Sem ocorrência de corrupção.</p></div>
       </div>
 
       <!-- 2023 -->
@@ -780,6 +845,8 @@
           <p>A 2ª Turma do STF anula quatro dos cinco relatórios de inteligência financeira do Coaf que embasavam a denúncia, enfraquecendo a acusação.</p>
           <div class="refs"><a href="#s34">34</a></div>
         </div>
+        <div class="cell empty status-green" data-cand="zema"><p>Sem ocorrência registrada nas fontes consultadas.</p></div>
+        <div class="cell empty status-green" data-cand="caiado"><p>Sem ocorrência registrada nas fontes consultadas.</p></div>
       </div>
 
       <!-- 2024 -->
@@ -793,6 +860,8 @@
           <p>O ministro Gilmar Mendes nega recursos do Ministério Público para reabrir a apuração, por entendê-los fora do prazo. Na prática, o caso da rachadinha fica encerrado (fev/2024).</p>
           <div class="refs"><a href="#s34">34</a></div>
         </div>
+        <div class="cell empty status-green" data-cand="zema"><p>Sem ocorrência registrada nas fontes consultadas.</p></div>
+        <div class="cell empty status-green" data-cand="caiado"><p>Sem ocorrência registrada nas fontes consultadas.</p></div>
       </div>
 
       <!-- 2025 -->
@@ -805,6 +874,18 @@
           <h4>Fim da "rachadinha" e caso Banco Master</h4>
           <p>O STF nega definitivamente nova tentativa de reabertura do caso rachadinha: o processo permanece encerrado sem condenação. Em paralelo, ganha repercussão a relação de Flávio com Daniel Vorcaro, dono do Banco Master — liquidado extrajudicialmente e preso por lavagem de dinheiro em novembro/2025; segundo a CNN Brasil, áudios mostram Flávio pedindo dinheiro a Vorcaro para financiar um filme sobre o pai. Não há denúncia formal de corrupção contra o senador nessa frente.</p>
           <div class="refs"><a href="#s34">34</a><a href="#s38">38</a></div>
+        </div>
+        <div class="cell status-orange" data-cand="zema">
+          <span class="tag">Escândalo no governo · sem denúncia pessoal</span>
+          <h4>Operação Rejeito (fraude ambiental na mineração)</h4>
+          <p>Em setembro, a Polícia Federal deflagra a Operação Rejeito contra um esquema de propina para liberar licenciamentos ambientais irregulares a mineradoras em Minas Gerais, com prisões de nomeados do governo (ex-presidente da Feam) e servidores. Investigadores citam um decreto assinado por Zema em novembro de 2024, que flexibilizou regras de licenciamento, como favorável ao esquema. Zema não foi pessoalmente denunciado até a publicação desta página. Em dezembro, a CPMI do INSS vota para convocá-lo a depor sobre empréstimos consignados da Zema Financeira, empresa da família da qual ele diz ter se afastado em 2018.</p>
+          <div class="refs"><a href="#s41">41</a><a href="#s42">42</a><a href="#s46">46</a><a href="#s48">48</a></div>
+        </div>
+        <div class="cell status-orange" data-cand="caiado">
+          <span class="tag">Duas apurações no governo</span>
+          <h4>Fraude no Fundeb e pagamentos a grupo ligado ao PCC</h4>
+          <p>Em agosto, a Polícia Federal deflagra a Operação Ilicitantes contra fraude em licitação de 2021 da Secretaria de Educação de Goiás com recursos do Fundeb, com pagamento de cerca de R$ 465 mil em vantagem indevida a um ex-terceirizado da pasta. Em maio, reportagens revelam que o governo de Caiado repassou R$ 209 milhões, entre 2020 e 2025, a empresas de um homem investigado por suposta ligação com o PCC, por meio da organização social Imed, que administra unidades de saúde do estado. Caiado não foi pessoalmente denunciado nesses casos até a publicação desta página.</p>
+          <div class="refs"><a href="#s52">52</a><a href="#s53">53</a><a href="#s54">54</a><a href="#s55">55</a></div>
         </div>
       </div>
 
@@ -828,6 +909,18 @@
           <h4>Turbulência no entorno, sem acusação direta</h4>
           <p>Em fevereiro, a Justiça do DF manda remover uma publicação que atribuía falsamente a Flávio um esquema de lavagem via Banco Master, por considerá-la difamatória e sem provas. Em agosto, a Polícia Federal abre inquérito, a pedido do TSE, para apurar uma fraude que alterou sua filiação partidária no sistema eleitoral (ele teria sido incluído no partido Missão sem autorização) — nesse caso, apura-se quem cometeu a fraude, e Flávio aparece como alvo do ataque, não como suspeito. Até a publicação desta página, não há denúncia formal de corrupção contra o senador relativa a fatos de 2025–2026.</p>
           <div class="refs"><a href="#s39">39</a><a href="#s40">40</a></div>
+        </div>
+        <div class="cell status-orange" data-cand="zema">
+          <span class="tag">Investigação segue aberta</span>
+          <h4>Operação Rejeito continua e CPMI aguarda depoimento</h4>
+          <p>Uma nova fase da Operação Rejeito, em junho, revela envolvimento de aliados de Zema em esquema de espionagem ilegal; em agosto, a Justiça autoriza o desmembramento do inquérito para investigar novas pessoas. A CPMI do INSS mantém a convocação do governador, oficializado candidato à Presidência pelo Novo em julho. Até a publicação desta página, Zema não é pessoalmente réu nem denunciado em nenhum desses casos.</p>
+          <div class="refs"><a href="#s43">43</a><a href="#s44">44</a><a href="#s47">47</a></div>
+        </div>
+        <div class="cell status-orange" data-cand="caiado">
+          <span class="tag">Ação por improbidade</span>
+          <h4>Uso de escolta policial após deixar o governo</h4>
+          <p>Renuncia ao governo de Goiás em março para concorrer à Presidência pelo PSD, oficializado candidato em julho. Em junho, o Ministério Público de Goiás move ação por improbidade administrativa contra Caiado, a ex-primeira-dama Gracinha Caiado e o chefe da Casa Militar pelo uso de 51 policiais militares como segurança pessoal após a renúncia; a Justiça determina a redução da escolta para 4 PMs. O MP pede ressarcimento aos cofres públicos e a condenação dos três por improbidade.</p>
+          <div class="refs"><a href="#s51">51</a><a href="#s56">56</a><a href="#s57">57</a><a href="#s58">58</a></div>
         </div>
       </div>
 
@@ -858,7 +951,11 @@
       </div>
       <div class="method-card">
         <h4>Terceiros não contam como o candidato</h4>
-        <p>Investigações contra familiares, assessores ou aliados (ex.: o filho de Lula, ou pessoas do entorno de Flávio Bolsonaro) só entram na ficha do próprio candidato quando ele é formalmente investigado, denunciado ou condenado — não pela proximidade com o investigado.</p>
+        <p>Investigações contra familiares, assessores, aliados ou empresas ligadas ao nome do candidato (ex.: o filho de Lula, o entorno de Flávio Bolsonaro, ou a financeira da família de Zema) só entram na ficha do próprio candidato quando ele é formalmente investigado, denunciado ou condenado — não pela proximidade com o investigado.</p>
+      </div>
+      <div class="method-card">
+        <h4>Governo do candidato não é o mesmo que o candidato</h4>
+        <p>Quando um esquema de corrupção atinge servidores, nomeados ou empresas contratadas pelo governo de um candidato (casos de Zema e Caiado), a célula fica laranja apenas se houver decreto, ato ou decisão pessoal do governador diretamente citado pelos investigadores — e o texto sempre deixa claro se ele próprio foi ou não denunciado.</p>
       </div>
       <div class="method-card">
         <h4>Fatos de 2025–2026 são os mais instáveis</h4>
@@ -876,6 +973,8 @@
         <h2 id="fontes-h">Todas as fontes consultadas</h2>
       </div>
     </div>
+
+    <div class="source-cols">
 
     <div class="source-group">
       <h3>Luiz Inácio Lula da Silva <span class="n">— 13 referências</span></h3>
@@ -931,6 +1030,36 @@
       </ol>
     </div>
 
+    <div class="source-group">
+      <h3>Romeu Zema <span class="n">— 9 referências</span></h3>
+      <ol class="source-list">
+        <li id="s41"><span class="idx">41</span><span><a href="https://www.gazetadopovo.com.br/brasil/operacao-contra-fraude-bilionaria-mineracao-fragiliza-projeto-presidencial-de-zema/" target="_blank" rel="noopener">Operação que mira mineração em Minas atinge governo Zema</a><span class="source-outlet">Gazeta do Povo, 2025</span></span></li>
+        <li id="s42"><span class="idx">42</span><span><a href="https://www.otempo.com.br/politica/2025/9/19/esquema-de-corrupcao-em-orgaos-do-governo-de-mg-pode-afetar-pretensoes-eleitorais-de-zema" target="_blank" rel="noopener">Esquema de corrupção em órgãos do governo de MG pode afetar pretensões eleitorais de Zema</a><span class="source-outlet">O Tempo, 2025</span></span></li>
+        <li id="s43"><span class="idx">43</span><span><a href="https://www.brasildefato.com.br/2026/06/24/nova-fase-da-operacao-rejeito-mostra-envolvimento-de-aliados-de-zema-com-espionagem-ilegal/" target="_blank" rel="noopener">Nova fase da Operação Rejeito mostra envolvimento de aliados de Zema com espionagem ilegal</a><span class="source-outlet">Brasil de Fato, 2026</span></span></li>
+        <li id="s44"><span class="idx">44</span><span><a href="https://www.otempo.com.br/cidades/2026/8/14/operacao-rejeito-espera-desmembramento-para-investigar-novas-pessoas-e-irregularidades" target="_blank" rel="noopener">Operação Rejeito espera desmembramento para investigar novas pessoas e irregularidades</a><span class="source-outlet">O Tempo, 2026</span></span></li>
+        <li id="s45"><span class="idx">45</span><span><a href="https://transparenciainternacional.org.br/posts/a-operacao-rejeito-expos-um-grande-esquema-de-corrupcao-em-orgaos-ambientais/" target="_blank" rel="noopener">A Operação Rejeito expôs um grande esquema de corrupção em órgãos ambientais</a><span class="source-outlet">Transparência Internacional Brasil</span></span></li>
+        <li id="s46"><span class="idx">46</span><span><a href="https://agenciabrasil.ebc.com.br/politica/noticia/2025-12/cpmi-do-inss-convoca-dono-do-banco-master-e-governador-zema" target="_blank" rel="noopener">CPMI do INSS convoca dono do Banco Master e governador Zema</a><span class="source-outlet">Agência Brasil, 2025</span></span></li>
+        <li id="s47"><span class="idx">47</span><span><a href="https://www.camara.leg.br/noticias/1230013-cpmi-do-inss-convoca-romeu-zema-e-rejeita-chamar-lulinha-e-jorge-messias/" target="_blank" rel="noopener">CPMI do INSS convoca Romeu Zema e rejeita chamar Lulinha e Jorge Messias</a><span class="source-outlet">Portal da Câmara dos Deputados, 2025</span></span></li>
+        <li id="s48"><span class="idx">48</span><span><a href="https://www.em.com.br/politica/2025/12/7305001-cpmi-do-inss-vota-convocacao-de-zema-para-depor-sobre-empresa.html" target="_blank" rel="noopener">CPMI do INSS vota convocação de Zema para depor sobre empresa</a><span class="source-outlet">Estado de Minas, 2025</span></span></li>
+        <li id="s49"><span class="idx">49</span><span><a href="https://www.metropoles.com/sao-paulo/cpmi-zema-faturou-r-200-milhoes-em-consignados" target="_blank" rel="noopener">Alvo da CPMI, financeira de Zema faturou R$ 200 milhões em consignados</a><span class="source-outlet">Metrópoles</span></span></li>
+      </ol>
+    </div>
+
+    <div class="source-group">
+      <h3>Ronaldo Caiado <span class="n">— 8 referências</span></h3>
+      <ol class="source-list">
+        <li id="s51"><span class="idx">51</span><span><a href="https://www.gazetadopovo.com.br/eleicoes/2026/ronaldo-caiado-sera-candidato-a-presidente-pelo-psd/" target="_blank" rel="noopener">Ronaldo Caiado será candidato a presidente pelo PSD</a><span class="source-outlet">Gazeta do Povo, 2026</span></span></li>
+        <li id="s52"><span class="idx">52</span><span><a href="https://www.gov.br/pf/pt-br/assuntos/noticias/2025/08/pf-apura-fraudes-em-licitacao-com-recursos-do-fundeb" target="_blank" rel="noopener">PF apura fraudes em licitação com recursos do Fundeb em quatro estados</a><span class="source-outlet">Polícia Federal (gov.br), 2025</span></span></li>
+        <li id="s53"><span class="idx">53</span><span><a href="https://portal6.com.br/2025/08/07/goias-e-um-dos-estados-em-que-pf-deflagrou-operacao-contra-fraude-no-fundeb/" target="_blank" rel="noopener">Goiás é um dos estados em que PF deflagrou operação contra fraude no Fundeb</a><span class="source-outlet">Portal 6, 2025</span></span></li>
+        <li id="s54"><span class="idx">54</span><span><a href="https://www.maisgoias.com.br/cidades/fundeb-fraude-em-licitacao-da-seduc-go-leva-policia-federal-a-cumprir-mandados-em-quatro-estados/" target="_blank" rel="noopener">Fundeb: fraude em licitação da Seduc-GO leva Polícia Federal a cumprir mandados em quatro estados</a><span class="source-outlet">Mais Goiás, 2025</span></span></li>
+        <li id="s55"><span class="idx">55</span><span><a href="https://www.metropoles.com/colunas/andreza-matais/gestao-de-caiado-pagou-r-340-milhoes-a-grupo-ligado-ao-pcc" target="_blank" rel="noopener">Governo de Goiás pagou R$ 209 milhões a grupo investigado por ligação com o PCC</a><span class="source-outlet">Metrópoles, 2025</span></span></li>
+        <li id="s56"><span class="idx">56</span><span><a href="https://jornaldebrasilia.com.br/noticias/politica-e-poder/ministerio-publico-de-goias-entra-com-acao-contra-uso-de-policiais-como-segurancas-de-caiado/" target="_blank" rel="noopener">Ministério Público de Goiás entra com ação contra uso de policiais como seguranças de Caiado</a><span class="source-outlet">Jornal de Brasília, 2026</span></span></li>
+        <li id="s57"><span class="idx">57</span><span><a href="https://www.metropoles.com/brasil/justica-determina-que-caiado-reduza-seguranca-pessoal-de-51-para-4-pms" target="_blank" rel="noopener">Justiça determina que Caiado reduza segurança pessoal de 51 para 4 PMs</a><span class="source-outlet">Metrópoles, 2026</span></span></li>
+        <li id="s58"><span class="idx">58</span><span><a href="https://www.brasildefato.com.br/2026/06/27/ronaldo-caiado-entra-na-mira-do-mp-de-goias-por-uso-de-policiais-como-segurancas-particulares/" target="_blank" rel="noopener">Ronaldo Caiado entra na mira do MP de Goiás por uso de policiais como seguranças particulares</a><span class="source-outlet">Brasil de Fato, 2026</span></span></li>
+      </ol>
+    </div>
+
+    </div>
   </div>
 </section>
 
@@ -945,12 +1074,13 @@
   var timeline = document.getElementById('timeline');
   var chips = document.querySelectorAll('.chip[data-cand]');
   var onlyActive = document.getElementById('onlyActive');
-  var state = { lula:true, renan:true, flavio:true };
+  var candidates = ['lula','renan','flavio','zema','caiado'];
+  var state = { lula:true, renan:true, flavio:true, zema:true, caiado:true };
 
   function applyCandidateVisibility(){
-    var visible = Object.keys(state).filter(function(k){ return state[k]; }).length || 1;
+    var visible = candidates.filter(function(k){ return state[k]; }).length || 1;
     timeline.style.setProperty('--cols', visible);
-    ['lula','renan','flavio'].forEach(function(c){
+    candidates.forEach(function(c){
       timeline.classList.toggle('hide-' + c, !state[c]);
     });
   }
@@ -958,7 +1088,7 @@
   chips.forEach(function(btn){
     btn.addEventListener('click', function(){
       var c = btn.getAttribute('data-cand');
-      var activeCount = Object.keys(state).filter(function(k){ return state[k]; }).length;
+      var activeCount = candidates.filter(function(k){ return state[k]; }).length;
       if(state[c] && activeCount === 1){ return; } // keep at least one visible
       state[c] = !state[c];
       btn.setAttribute('aria-pressed', String(state[c]));
