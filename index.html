@@ -283,6 +283,36 @@
 
   /* ===== Timeline / ledger ===== */
   .timeline{--cols:5;}
+  .timeline-head{
+    display:grid;
+    grid-template-columns:88px repeat(var(--cols),1fr);
+    gap:12px;
+    position:sticky;
+    top:0;
+    z-index:5;
+    background:var(--paper);
+    padding:12px 0;
+    margin-bottom:4px;
+    border-bottom:2px solid var(--line);
+  }
+  .timeline-head .head-cell{
+    font-family:"IBM Plex Mono",monospace;
+    font-size:11.5px;
+    letter-spacing:.06em;
+    text-transform:uppercase;
+    font-weight:700;
+    color:var(--accent-ink);
+    padding:6px 13px;
+    display:flex;
+    align-items:center;
+    min-width:0;
+  }
+  .timeline.hide-lula .head-cell[data-cand="lula"],
+  .timeline.hide-renan .head-cell[data-cand="renan"],
+  .timeline.hide-flavio .head-cell[data-cand="flavio"],
+  .timeline.hide-zema .head-cell[data-cand="zema"],
+  .timeline.hide-caiado .head-cell[data-cand="caiado"]{display:none;}
+  .cell::before{content:none;}
   .year-row{
     display:grid;
     grid-template-columns:88px repeat(var(--cols),1fr);
@@ -362,10 +392,21 @@
   .timeline.hide-caiado .cell[data-cand="caiado"]{display:none;}
 
   @media (max-width:900px){
+    .timeline-head{display:none;}
     .year-row{grid-template-columns:1fr; gap:8px;}
     .year-label{position:static; padding-top:0; font-size:1rem;
       display:flex; align-items:center; gap:8px;}
     .year-label::after{content:""; height:1px; flex:1; background:var(--line);}
+    .cell::before{
+      content:attr(data-cand);
+      font-family:"IBM Plex Mono",monospace;
+      font-size:10px;
+      letter-spacing:.07em;
+      text-transform:uppercase;
+      font-weight:700;
+      color:var(--accent-ink);
+      opacity:.8;
+    }
   }
 
   /* ===== Methodology ===== */
@@ -587,6 +628,15 @@
     </div>
 
     <div class="timeline" id="timeline">
+
+      <div class="timeline-head">
+        <div class="head-cell head-spacer" aria-hidden="true"></div>
+        <div class="head-cell" data-cand="lula">Lula</div>
+        <div class="head-cell" data-cand="renan">Renan</div>
+        <div class="head-cell" data-cand="flavio">Flávio</div>
+        <div class="head-cell" data-cand="zema">Zema</div>
+        <div class="head-cell" data-cand="caiado">Caiado</div>
+      </div>
 
       <!-- 2005 -->
       <div class="year-row" data-active="true">
